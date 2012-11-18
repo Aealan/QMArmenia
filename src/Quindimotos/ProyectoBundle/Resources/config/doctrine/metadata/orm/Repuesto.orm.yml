@@ -1,0 +1,52 @@
+Repuesto:
+    type: entity
+    table: repuesto
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: true
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 45
+            fixed: false
+            nullable: false
+        descripcion:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+        valor:
+            type: float
+            nullable: true
+    manyToMany:
+        solicitudserviciotecnico:
+            targetEntity: Solicitudserviciotecnico
+            cascade: {  }
+            mappedBy: repuesto
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    manyToOne:
+        marcarepuesto:
+            targetEntity: Marcarepuesto
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                MarcaRepuesto_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        tiporepuesto:
+            targetEntity: Tiporepuesto
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                TipoRepuesto_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,17 @@
+Marcarepuesto:
+    type: entity
+    table: marcarepuesto
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: true
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 45
+            fixed: false
+            nullable: false
+    lifecycleCallbacks: {  }

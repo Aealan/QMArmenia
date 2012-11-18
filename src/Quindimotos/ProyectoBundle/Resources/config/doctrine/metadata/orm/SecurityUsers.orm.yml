@@ -1,0 +1,96 @@
+SecurityUsers:
+    type: entity
+    table: security_users
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        username:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+        usernamecanonical:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+            column: usernameCanonical
+        email:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+        emailcanonical:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+            column: emailCanonical
+        eneable:
+            type: boolean
+            nullable: false
+        salt:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+        password:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+        lastlogin:
+            type: datetime
+            nullable: true
+            column: lastLogin
+        locked:
+            type: boolean
+            nullable: false
+        expired:
+            type: boolean
+            nullable: true
+        expiresAt:
+            type: datetime
+            nullable: true
+            column: expires_At
+        confirmationtoken:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+            column: confirmationToken
+        $passwordRequestedAt:
+            type: datetime
+            nullable: true
+            column: $password_Requested_At
+        $credentialsexpired:
+            type: boolean
+            nullable: false
+            column: $credentialsExpired
+        $credentialsExpireAt:
+            type: datetime
+            nullable: true
+            column: $credentials_Expire_At
+    manyToMany:
+        role:
+            targetEntity: SecurityRoles
+            cascade: {  }
+            mappedBy: null
+            inversedBy: user
+            joinTable:
+                name: security_users_roles
+                joinColumns:
+                    -
+                        name: user_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: role_id
+                        referencedColumnName: id
+            orderBy: null
+    lifecycleCallbacks: {  }

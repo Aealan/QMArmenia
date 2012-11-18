@@ -1,0 +1,59 @@
+Moto:
+    type: entity
+    table: moto
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: true
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        placa:
+            type: string
+            length: 20
+            fixed: false
+            nullable: false
+        color:
+            type: string
+            length: 20
+            fixed: false
+            nullable: false
+        modelo:
+            type: string
+            length: 45
+            fixed: false
+            nullable: false
+        kilometraje:
+            type: integer
+            unsigned: true
+            nullable: false
+    manyToOne:
+        cliente:
+            targetEntity: Cliente
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                Cliente_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        marca:
+            targetEntity: Marca
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                Marca_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        tipomoto:
+            targetEntity: Tipomoto
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                TipoMoto_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

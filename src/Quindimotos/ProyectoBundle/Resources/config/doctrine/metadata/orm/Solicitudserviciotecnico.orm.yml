@@ -1,0 +1,78 @@
+Solicitudserviciotecnico:
+    type: entity
+    table: solicitudserviciotecnico
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: true
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        fechaingreso:
+            type: datetime
+            nullable: true
+            column: fechaIngreso
+        fechaentrega:
+            type: datetime
+            nullable: true
+            column: fechaEntrega
+        observaciones:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+        recividopor:
+            type: integer
+            unsigned: true
+            nullable: true
+            column: recividoPor
+        entregadopor:
+            type: integer
+            unsigned: true
+            nullable: true
+            column: entregadoPor
+    manyToMany:
+        repuesto:
+            targetEntity: Repuesto
+            cascade: {  }
+            mappedBy: null
+            inversedBy: solicitudserviciotecnico
+            joinTable:
+                name: repuesto_has_solicitudserviciotecnico
+                joinColumns:
+                    -
+                        name: SolicitudServicioTecnico_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: Repuesto_id
+                        referencedColumnName: id
+            orderBy: null
+        tipodeservicio:
+            targetEntity: Tipodeservicio
+            cascade: {  }
+            mappedBy: null
+            inversedBy: solicitudserviciotecnico
+            joinTable:
+                name: tipodeservicio_has_solicitudserviciotecnico
+                joinColumns:
+                    -
+                        name: SolicitudServicioTecnico_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: TipoDeServicio_id
+                        referencedColumnName: id
+            orderBy: null
+    manyToOne:
+        cliente:
+            targetEntity: Cliente
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                Cliente_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

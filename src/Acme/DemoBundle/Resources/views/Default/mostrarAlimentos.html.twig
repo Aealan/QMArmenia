@@ -1,0 +1,7 @@
+     {% extends 'AcmeDemoBundle::layout1.html.twig' %}
+    
+     {% block contenido %}
+    
+   {% include 'AcmeDemoBundle:Default:_tablaAlimentos.html.twig' with {'alimentos': alimentos} %}
+    
+     {% endblock %} 

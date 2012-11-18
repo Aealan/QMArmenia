@@ -1,0 +1,25 @@
+Cargo:
+    type: entity
+    table: cargo
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: true
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 45
+            fixed: false
+            nullable: false
+        salario:
+            type: float
+            nullable: false
+        descripcion:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+    lifecycleCallbacks: {  }

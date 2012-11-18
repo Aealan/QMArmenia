@@ -1,0 +1,46 @@
+Cliente:
+    type: entity
+    table: cliente
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: true
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 45
+            fixed: false
+            nullable: false
+        apellido:
+            type: string
+            length: 45
+            fixed: false
+            nullable: false
+        telefono:
+            type: integer
+            unsigned: true
+            nullable: false
+        direccion:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+        email:
+            type: string
+            length: 45
+            fixed: false
+            nullable: false
+    manyToOne:
+        ciudad:
+            targetEntity: Ciudad
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                Ciudad_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

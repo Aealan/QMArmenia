@@ -1,0 +1,27 @@
+Ciudad:
+    type: entity
+    table: ciudad
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: true
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 45
+            fixed: false
+            nullable: false
+    manyToOne:
+        departamento:
+            targetEntity: Departamento
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                Departamento_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,33 @@
+Tipodeservicio:
+    type: entity
+    table: tipodeservicio
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: true
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 45
+            fixed: false
+            nullable: false
+        descripcion:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+        preciobasico:
+            type: float
+            nullable: false
+    manyToMany:
+        solicitudserviciotecnico:
+            targetEntity: Solicitudserviciotecnico
+            cascade: {  }
+            mappedBy: tipodeservicio
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

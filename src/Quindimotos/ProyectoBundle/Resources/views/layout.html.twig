@@ -1,0 +1,29 @@
+{% extends '::base.html.twig' %}
+
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('bundles/QuindimotosProyecto/css/reset.css') }}" type="text/css" media="screen" />
+<link rel="stylesheet" href="{{ asset('bundles/QuindimotosProyecto/css/style.css') }}" type="text/css" media="screen" />
+<link rel="stylesheet" href="{{ asset('bundles/QuindimotosProyecto/css/invalid.css') }}" type="text/css" media="screen" />	
+
+{% endblock %}
+{% block body %}
+
+<body id="login">
+
+    <div id="login-wrapper" class="png_bg">
+        <div id="login-top">
+
+            {% block title %}Login!{% endblock %}
+            <!-- Logo (221px width) -->
+            <img id="logo" src= "{{ asset('bundles/QuindimotosProyecto/images//textoQuindimotos.png')}}" alt="quindimotos logo" />
+        </div> <!-- End #logn-top -->
+        <div id="login-content">
+
+    {{ block ('fos_user_content')}}
+        </div> <!-- End #login-content -->
+
+    </div> <!-- End #login-wrapper -->
+
+</body>
+{% endblock %}

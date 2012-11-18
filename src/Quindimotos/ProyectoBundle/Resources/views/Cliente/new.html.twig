@@ -1,0 +1,81 @@
+<div>
+<h1>Cliente creation</h1>
+
+<form action="{{ path('cliente_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+        
+        <option value=“0“>seleccione...</option>
+{% for ciudad in ciudades %}
+<option value=“{{ ciudad.id }}“>{{ ciudad.nombre }}</option>
+{% endfor %}
+    <p>
+        <button type="submit">Create</button>
+    </p>
+</form>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('cliente') }}">
+            Back to the list
+            
+    </li>
+    
+</ul>
+</div>
+{#<script type="text/javascript">
+function rellenaCiudades(id) {
+    $('#form_departamento_departamento').show();$("body").css("cursor", "progress");
+    $.ajax({url: "{{ path('ajax_nivel') }}", type: 'POST', dataType: 'json', data: {id: id},
+        success: function (data, departamento) { 
+                        var items = new Array();
+                        //$('#form_Materia').empty();
+                        items.push('<option value="">Selecciona Materia</option>');
+                        if (data.length > 0) {
+                            $.each(data,function(i,ciudad) {
+                                items.push('<option value="' + ciudad.id + '=>' + ciudad.nombre + '">' + ciudad.nombre + "</option>");
+                            });
+                        }
+                        $('#form_Materia').html(items.join(''));
+                        $('#loading').hide();$("body").css("cursor", "auto");
+                    },
+        error: function(peticion, textStatus, errorThrown) { $('#loading').hide();$("body").css("cursor", "auto");}
+    });
+};
+</script>#}
+<script type="text/javascript"> 
+            $(document).ready(function(){ 
+               {% if ciudades %} 
+                   var cliente_ciudad = {{ ciudades.id }}; 
+                {% else %} 
+                    var cliente_ciudad = 0; 
+                {% endif %} 
+
+                var select_Departamento = $('#form_departamento_departamento'); 
+
+                if(select_Departamento.val()){ 
+                    cargarCiudades(select_Departameto.val()); 
+                } 
+
+                $('#form_departamento_departamento').change(function(event){ 
+                    cargarCiudades(this.value); 
+                }); 
+
+                function cargarCiudades(departamento){ 
+                    $("body").css("cursor", "progress"); 
+                    $.ajax({ 
+                        type: 'get', 
+                        url: '{{ path('ajax_nivel') }}', 
+                        data: { 
+                            id: departamento 
+                        }, 
+                        success: function(html) { 
+                            var select_ciudad = $('#form_departamento_ciudad');
+                            {#printf("DepSelected".select_Departameto.val());#}
+                            select_ciudad.html(html); 
+                            select_ciudad.val(cliente_ciudad);
+                            $("body").css("cursor", "auto"); 
+                        } 
+                    }); 
+                }; 
+            }); 
+        </script> 

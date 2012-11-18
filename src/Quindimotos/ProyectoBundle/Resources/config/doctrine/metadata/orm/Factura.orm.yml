@@ -1,0 +1,36 @@
+Factura:
+    type: entity
+    table: factura
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: true
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        fechadeexp:
+            type: datetime
+            nullable: false
+            column: fechadeExp
+        valorafacturar:
+            type: float
+            nullable: false
+            column: valoraFacturar
+        iva:
+            type: float
+            nullable: false
+        total:
+            type: float
+            nullable: false
+    manyToOne:
+        solicitudserviciotecnico:
+            targetEntity: Solicitudserviciotecnico
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                SolicitudServicioTecnico_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
