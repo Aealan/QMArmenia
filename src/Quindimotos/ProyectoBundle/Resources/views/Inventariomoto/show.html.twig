@@ -1,0 +1,113 @@
+<h1>Inventariomoto</h1>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Espejos</th>
+            <td>{{ entity.espejos }}</td>
+        </tr>
+        <tr>
+            <th>Direccionales</th>
+            <td>{{ entity.direccionales }}</td>
+        </tr>
+        <tr>
+            <th>Tapaslaterales</th>
+            <td>{{ entity.tapaslaterales }}</td>
+        </tr>
+        <tr>
+            <th>Sillin</th>
+            <td>{{ entity.sillin }}</td>
+        </tr>
+        <tr>
+            <th>Tabacos</th>
+            <td>{{ entity.tabacos }}</td>
+        </tr>
+        <tr>
+            <th>Stop</th>
+            <td>{{ entity.stop }}</td>
+        </tr>
+        <tr>
+            <th>Gatos</th>
+            <td>{{ entity.gatos }}</td>
+        </tr>
+        <tr>
+            <th>Reflectivas</th>
+            <td>{{ entity.reflectivas }}</td>
+        </tr>
+        <tr>
+            <th>Tapatanqueaceite</th>
+            <td>{{ entity.tapatanqueaceite }}</td>
+        </tr>
+        <tr>
+            <th>Emblemas</th>
+            <td>{{ entity.emblemas }}</td>
+        </tr>
+        <tr>
+            <th>Parrillas</th>
+            <td>{{ entity.parrillas }}</td>
+        </tr>
+        <tr>
+            <th>Luzdelantera</th>
+            <td>{{ entity.luzdelantera }}</td>
+        </tr>
+        <tr>
+            <th>Pito</th>
+            <td>{{ entity.pito }}</td>
+        </tr>
+        <tr>
+            <th>Bateria</th>
+            <td>{{ entity.bateria }}</td>
+        </tr>
+        <tr>
+            <th>Velocimetro</th>
+            <td>{{ entity.velocimetro }}</td>
+        </tr>
+        <tr>
+            <th>Guardafango</th>
+            <td>{{ entity.guardafango }}</td>
+        </tr>
+        <tr>
+            <th>Juegodeherramientas</th>
+            <td>{{ entity.juegodeherramientas }}</td>
+        </tr>
+        <tr>
+            <th>Llaves</th>
+            <td>{{ entity.llaves }}</td>
+        </tr>
+        <tr>
+            <th>Tanque</th>
+            <td>{{ entity.tanque }}</td>
+        </tr>
+        <tr>
+            <th>Manual</th>
+            <td>{{ entity.manual }}</td>
+        </tr>
+        <tr>
+            <th>Llantas</th>
+            <td>{{ entity.llantas }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('inventariomoto') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('inventariomoto_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('inventariomoto_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>

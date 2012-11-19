@@ -1,0 +1,89 @@
+<h1>Inventariomoto list</h1>
+
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Espejos</th>
+            <th>Direccionales</th>
+            <th>Tapaslaterales</th>
+            <th>Sillin</th>
+            <th>Tabacos</th>
+            <th>Stop</th>
+            <th>Gatos</th>
+            <th>Reflectivas</th>
+            <th>Tapatanqueaceite</th>
+            <th>Emblemas</th>
+            <th>Parrillas</th>
+            <th>Luzdelantera</th>
+            <th>Pito</th>
+            <th>Bateria</th>
+            <th>Velocimetro</th>
+            <th>Guardafango</th>
+            <th>Juegodeherramientas</th>
+            <th>Llaves</th>
+            <th>Tanque</th>
+            <th>Manual</th>
+            <th>Llantas</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('inventariomoto_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.espejos }}</td>
+            <td>{{ entity.direccionales }}</td>
+            <td>{{ entity.tapaslaterales }}</td>
+            <td>{{ entity.sillin }}</td>
+            <td>{{ entity.tabacos }}</td>
+            <td>{{ entity.stop }}</td>
+            <td>{{ entity.gatos }}</td>
+            <td>{{ entity.reflectivas }}</td>
+            <td>{{ entity.tapatanqueaceite }}</td>
+            <td>{{ entity.emblemas }}</td>
+            <td>{{ entity.parrillas }}</td>
+            <td>{{ entity.luzdelantera }}</td>
+            <td>{{ entity.pito }}</td>
+            <td>{{ entity.bateria }}</td>
+            <td>{{ entity.velocimetro }}</td>
+            <td>{{ entity.guardafango }}</td>
+            <td>{{ entity.juegodeherramientas }}</td>
+            <td>{{ entity.llaves }}</td>
+            <td>{{ entity.tanque }}</td>
+            <td>{{ entity.manual }}</td>
+            <td>{{ entity.llantas }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('inventariomoto_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('inventariomoto_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('inventariomoto_new') }}">
+            Create a new entry
+  
+
+
+
+        </a>
+    </li>
+</ul>
+
+
+    {% for i in range(0, 10) %}
+     {% if i is divisibleby(2)  %}
+    {{ i }}
+    {% endif%}
+    {% endfor %}
+    
